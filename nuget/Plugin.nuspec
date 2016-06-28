@@ -23,8 +23,8 @@
    <files>
      <file src="nuget\readme.txt" target="readme.txt" />
      <!--Xamarin.Android-->
-     <file src="src\Plugin.CurrentActivity\bin\Release\Plugin.CurrentActivity.dll" target="lib\MonoAndroid10\Plugin.CurrentActivity.dll" />
-     <file src="src\Plugin.CurrentActivity\bin\Release\Plugin.CurrentActivity.xml" target="lib\MonoAndroid10\Plugin.CurrentActivity.xml" />
+     <file src="src\Plugin.CurrentActivity.Android\bin\Release\Plugin.CurrentActivity.dll" target="lib\MonoAndroid10\Plugin.CurrentActivity.dll" />
+     <file src="src\Plugin.CurrentActivity.Android\bin\Release\Plugin.CurrentActivity.xml" target="lib\MonoAndroid10\Plugin.CurrentActivity.xml" />
      <!--Files for current activity plugin-->
 	  <file src="files\MainApplication.cs.pp" target="content\MonoAndroid10\MainApplication.cs.pp" />
    </files>
