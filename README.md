@@ -9,6 +9,8 @@ Want to read about the creation, checkout my [in-depth blog post](http://motzcod
 * Available on NuGet: http://www.nuget.org/packages/Plugin.CurrentActivity [![NuGet](https://img.shields.io/nuget/v/Plugin.CurrentActivity.svg?label=NuGet)](https://www.nuget.org/packages/Plugin.CurrentActivity/)
 * Install into your Xamarin.Android Client project.
 
+Build Status: [![Build status](https://ci.appveyor.com/api/projects/status/695dpbplb9x2sbta?svg=true)](https://ci.appveyor.com/project/JamesMontemagno/currentactivityplugin)
+
 **Platform Support**
 
 |Platform|Supported|Version|
