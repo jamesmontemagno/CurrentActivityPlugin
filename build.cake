@@ -76,6 +76,7 @@ Task ("NuGet")
 		Verbosity = NuGetVerbosity.Detailed,
 		OutputDirectory = "./Build/nuget/",
 		BasePath = "./",
+		ToolPath = "./tools/nuget3.exe"
 	});	
 });
 
