@@ -1,4 +1,5 @@
 version: 2.0.{build}
+configuration: Release
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
@@ -9,7 +10,7 @@ build_script:
 - cmd: >-
     powershell .\install-android-sdk.ps1
 
-    powershell .\bootstrapper.ps1 -Target Default -Verbosity diagnostic
+    powershell .\build.ps1 -Target Default -Verbosity diagnostic
 artifacts:
 - path: ./Build/nuget/*.nupkg
   name: NuGet
