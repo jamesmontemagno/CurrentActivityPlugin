@@ -7,9 +7,15 @@ using Plugin.CurrentActivity;
 
 namespace $rootnamespace$
 {
-	//You can specify additional application information in this attribute
-    [Application]
-    public class MainApplication : Application, Application.IActivityLifecycleCallbacks
+	//Do not delete thise file! It was here because plugins depend on it. 
+	//If you have an existing Application class you can merte the two together
+	//if you have existing assembly:Application, you can remove them.
+#if DEBUG
+	[Application(Debuggable = true)]
+#else
+	[Application(Debuggable = true)]
+#endif
+    public partial class MainApplication : Application, Application.IActivityLifecycleCallbacks
     {
         public MainApplication(IntPtr handle, JniHandleOwnership transer)
           :base(handle, transer)
@@ -20,7 +26,6 @@ namespace $rootnamespace$
         {
             base.OnCreate();
             RegisterActivityLifecycleCallbacks(this);
-            //A great place to initialize Xamarin.Insights and Dependency Services!
         }
 
         public override void OnTerminate()
