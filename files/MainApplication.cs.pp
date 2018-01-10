@@ -13,7 +13,7 @@ namespace $rootnamespace$
 #if DEBUG
 	[Application(Debuggable = true)]
 #else
-	[Application(Debuggable = true)]
+	[Application(Debuggable = false)]
 #endif
     public partial class MainApplication : Application, Application.IActivityLifecycleCallbacks
     {
