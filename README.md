@@ -27,7 +27,7 @@ Activity Activity { get; set; }
 
 That’s it! Well not really:
 
-**Application Setup**
+## Application Setup
 When you install this plugin a **MainApplication.cs** is installed into your Android project (This will not happen if your project has package references), otherwise follow the instructons from [_readme.txt_](https://raw.githubusercontent.com/jamesmontemagno/CurrentActivityPlugin/master/nuget/readme.txt) that is installed with the plugin. 
 
 If you already have an Application class then you should copy over the important bits that can be found in the [_readme.txt_](https://raw.githubusercontent.com/jamesmontemagno/CurrentActivityPlugin/master/nuget/readme.txt)
