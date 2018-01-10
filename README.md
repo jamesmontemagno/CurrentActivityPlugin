@@ -41,8 +41,9 @@ Activity Activity { get; set; }
 That’s it! Well not really:
 
 **Application Setup**
-When you install this plugin a **MainApplication.cs** is installed into your android project. If you already have an Application class then you should copy over the important bits that can be found in the Readme file that was also installed in the PluginsHelp folder
+When you install this plugin a **MainApplication.cs** is installed into your android project, otherwise follow the instructons from _readme.txt_ that is installed with the plugin. 
 
+If you already have an Application class then you should copy over the important bits that can be found in the _readme.txt_
 
 **Library Creators**
 Simply set this nuget as a dependency of your project to gain access to the current activity. This can be achieved by setting the following in your nuspec:
@@ -54,9 +55,3 @@ Simply set this nuget as a dependency of your project to gain access to the curr
   </group>
 </dependencies>
 ```
-
-
-Thanks!
-
-#### License
-Licensed under main repo license
