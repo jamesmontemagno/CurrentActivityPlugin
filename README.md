@@ -11,19 +11,6 @@ Want to read about the creation, checkout my [in-depth blog post](http://motzcod
 
 Build Status: [![Build status](https://ci.appveyor.com/api/projects/status/695dpbplb9x2sbta?svg=true)](https://ci.appveyor.com/project/JamesMontemagno/currentactivityplugin)
 
-**Platform Support**
-
-|Platform|Supported|Version|
-| ------------------- | :-----------: | :------------------: |
-|Xamarin.iOS|---|iOS 6+|
-|Xamarin.iOS Unified|---|iOS 6+|
-|Xamarin.Android|Yes|API 14+|
-|Windows Phone Silverlight|---|8.0+|
-|Windows Phone RT|---|8.1+|
-|Windows Store RT|---|8.1+|
-|Windows 10 UWP|---|10+|
-|Xamarin.Mac|---||
-
 
 ### API Usage
 
@@ -41,9 +28,11 @@ Activity Activity { get; set; }
 That’s it! Well not really:
 
 **Application Setup**
-When you install this plugin a **MainApplication.cs** is installed into your android project, otherwise follow the instructons from _readme.txt_ that is installed with the plugin. 
+When you install this plugin a **MainApplication.cs** is installed into your Android project (This will not happen if your project has package references), otherwise follow the instructons from [_readme.txt_](https://raw.githubusercontent.com/jamesmontemagno/CurrentActivityPlugin/master/nuget/readme.txt) that is installed with the plugin. 
 
-If you already have an Application class then you should copy over the important bits that can be found in the _readme.txt_
+If you already have an Application class then you should copy over the important bits that can be found in the [_readme.txt_](https://raw.githubusercontent.com/jamesmontemagno/CurrentActivityPlugin/master/nuget/readme.txt)
+
+
 
 **Library Creators**
 Simply set this nuget as a dependency of your project to gain access to the current activity. This can be achieved by setting the following in your nuspec:
