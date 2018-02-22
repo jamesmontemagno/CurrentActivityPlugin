@@ -43,7 +43,7 @@ using Plugin.CurrentActivity;
 namespace $rootnamespace$
 {
 	//Do not delete thise file! It was here because plugins depend on it. 
-	//If you have an existing Application class you can merte the two together
+	//If you have an existing Application class you can merge the two together
 	//if you have existing assembly:Application, you can remove them.
 #if DEBUG
 	[Application(Debuggable = true)]
