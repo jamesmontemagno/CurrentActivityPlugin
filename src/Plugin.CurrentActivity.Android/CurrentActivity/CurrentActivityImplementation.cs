@@ -26,7 +26,9 @@ namespace Plugin.CurrentActivity
             }
         }
 
-        
+        /// <summary>
+		/// Activity state changed event handler
+		/// </summary>
         public event EventHandler<ActivityEventArgs> ActivityStateChanged;
 
 
@@ -36,9 +38,16 @@ namespace Plugin.CurrentActivity
 
 		ActivityLifecycleContextListener lifecycleListener;
 
+		/// <summary>
+		/// Gets the current context
+		/// </summary>
         public Context Context =>
             lifecycleListener?.Context ?? Application.Context;
 
+		/// <summary>
+		/// Initialize current activity with application
+		/// </summary>
+		/// <param name="application">The main application</param>
         public void Init(Application application)
         {
 			if (lifecycleListener != null)
@@ -48,6 +57,11 @@ namespace Plugin.CurrentActivity
             application.RegisterActivityLifecycleCallbacks(lifecycleListener);
         }
 
+		/// <summary>
+		/// Initialize current activity with activity!
+		/// </summary>
+		/// <param name="activity">The main activity</param>
+		/// <param name="bundle">Bundle for activity </param>
         public void Init(Activity activity, Bundle bundle) =>
            Init(activity.Application);
     }

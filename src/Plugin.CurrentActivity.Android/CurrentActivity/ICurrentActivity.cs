@@ -1,5 +1,6 @@
 using System;
 using Android.App;
+using Android.Content;
 using Android.OS;
 
 namespace Plugin.CurrentActivity
@@ -15,10 +16,16 @@ namespace Plugin.CurrentActivity
         /// <value>The activity.</value>
         Activity Activity { get; set; }
 
-        /// <summary>
-        /// Fires when activity state events are fired
-        /// </summary>
-        event EventHandler<ActivityEventArgs> ActivityStateChanged;
+		/// <summary>
+		/// Gets the current Context.
+		/// </summary>
+		/// <value>The activity.</value>
+		Context Context { get; }
+
+		/// <summary>
+		/// Fires when activity state events are fired
+		/// </summary>
+		event EventHandler<ActivityEventArgs> ActivityStateChanged;
 
 		/// <summary>
 		/// Initialize Current Activity Plugin with Application
