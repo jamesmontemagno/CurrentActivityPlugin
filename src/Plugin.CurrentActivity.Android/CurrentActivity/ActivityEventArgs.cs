@@ -5,15 +5,14 @@ using Android.App;
 namespace Plugin.CurrentActivity
 {
     public class ActivityEventArgs : EventArgs
-    {
-        public ActivityEventArgs(Activity activity, ActivityEvent ev)
+	{
+		internal ActivityEventArgs(Activity activity, ActivityEvent ev)
         {
-            Activity = activity;
             Event = ev;
+			Activity = activity;
         }
-
-
-        public Activity Activity { get; }
+        
         public ActivityEvent Event { get; }
-    }
+		public Activity Activity { get; }
+	}
 }

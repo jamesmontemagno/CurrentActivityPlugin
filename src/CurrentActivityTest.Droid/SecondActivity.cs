@@ -10,18 +10,19 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Plugin.CurrentActivity;
 
 namespace CurrentActivityTest
 {
     [Activity(Label = "SecondActivity")]            
     public class SecondActivity : Activity
     {
-        protected override void OnCreate(Bundle savedInstanceState)
-        {
-            base.OnCreate(savedInstanceState);
+		protected override void OnCreate(Bundle savedInstanceState)
+		{
+			base.OnCreate(savedInstanceState);
 
-            // Create your application here
-        }
-    }
+			// Create your application here
+		}
+	}
 }
 

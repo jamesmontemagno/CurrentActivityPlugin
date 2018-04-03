@@ -1,5 +1,6 @@
 using System;
 using Android.App;
+using Android.OS;
 
 namespace Plugin.CurrentActivity
 {
@@ -15,20 +16,21 @@ namespace Plugin.CurrentActivity
         Activity Activity { get; set; }
 
         /// <summary>
-        /// Fires when the current activity instance is changing
-        /// </summary>
-        event EventHandler<Activity> CurrentActivityChanged;
-
-        /// <summary>
         /// Fires when activity state events are fired
         /// </summary>
         event EventHandler<ActivityEventArgs> ActivityStateChanged;
 
-        /// <summary>
-        /// Method to fire internal event - NOT MEANT TO BE CALLED BY EXTERNAL CODE
-        /// </summary>
-        /// <param name="activity"></param>
-        /// <param name="ev"></param>
-        void RaiseStateChanged(Activity activity, ActivityEvent ev);
-    }
+		/// <summary>
+		/// Initialize Current Activity Plugin with Application
+		/// </summary>
+		/// <param name="application"></param>
+		void Init(Application application);
+
+		/// <summary>
+		/// Initialize the current activity with activity and bundle
+		/// </summary>
+		/// <param name="activity"></param>
+		/// <param name="bundle"></param>
+		void Init(Activity activity, Bundle bundle);
+	}
 }

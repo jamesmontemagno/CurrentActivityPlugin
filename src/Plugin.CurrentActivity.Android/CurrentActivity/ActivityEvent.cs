@@ -8,6 +8,9 @@ namespace Plugin.CurrentActivity
         Created,
         Resumed,
         Paused,
-        Destroyed
-    }
+        Destroyed,
+		SaveInstanceState,
+        Started,
+        Stopped
+	}
 }

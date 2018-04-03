@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Plugin.CurrentActivity;
 
 namespace CurrentActivityTest
 {
@@ -18,15 +19,18 @@ namespace CurrentActivityTest
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
+			CrossCurrentActivity.Current.Init(this, bundle);
+
             // Get our button from the layout resource,
             // and attach an event to it
             Button button = FindViewById<Button>(Resource.Id.MyButton);
+
 
             button.Click += delegate 
                 {
                     StartActivity(typeof(SecondActivity));
                 };
         }
-    }
+	}
 }
 
