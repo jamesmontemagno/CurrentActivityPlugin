@@ -21,11 +21,17 @@ namespace Plugin.CurrentActivity
             get => this.activity;
             set
             {
-                this.activity = value;
-                this.CurrentActivityChanged?.Invoke(this, value);
+                activity = value;
+                CurrentActivityChanged?.Invoke(this, value);
             }
         }
 
+
         public event EventHandler<Activity> CurrentActivityChanged;
+        public event EventHandler<ActivityEventArgs> ActivityStateChanged;
+
+
+        public void RaiseStateChanged(Activity activity, ActivityEvent ev)
+            => ActivityStateChanged?.Invoke(this, new ActivityEventArgs(activity, ev));
     }
 }
