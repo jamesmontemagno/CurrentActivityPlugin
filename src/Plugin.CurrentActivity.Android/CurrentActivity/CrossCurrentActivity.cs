@@ -7,7 +7,7 @@ namespace Plugin.CurrentActivity
     /// </summary>
     public class CrossCurrentActivity
     {
-        static Lazy<ICurrentActivity> Implementation = new Lazy<ICurrentActivity>(() => CreateCurrentActivity(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
+        static Lazy<ICurrentActivity> implementation = new Lazy<ICurrentActivity>(() => CreateCurrentActivity(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
 
         /// <summary>
         /// Current settings to use
@@ -16,7 +16,7 @@ namespace Plugin.CurrentActivity
         {
             get
             {
-                var ret = Implementation.Value;
+                var ret = implementation.Value;
                 if (ret == null)
                 {
                     throw NotImplementedInReferenceAssembly();
@@ -27,8 +27,8 @@ namespace Plugin.CurrentActivity
 
         static ICurrentActivity CreateCurrentActivity()
         {
-#if PORTABLE
-        return null;
+#if NETSTANDARD1_0 || NETSTANDARD2_0
+            return null;
 #else
             return new CurrentActivityImplementation();
 #endif

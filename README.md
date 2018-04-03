@@ -9,7 +9,50 @@ Want to read about the creation, checkout my [in-depth blog post](http://motzcod
 * Available on NuGet: http://www.nuget.org/packages/Plugin.CurrentActivity [![NuGet](https://img.shields.io/nuget/v/Plugin.CurrentActivity.svg?label=NuGet)](https://www.nuget.org/packages/Plugin.CurrentActivity/)
 * Install into your Xamarin.Android Client project.
 
-Build Status: [![Build status](https://ci.appveyor.com/api/projects/status/695dpbplb9x2sbta?svg=true)](https://ci.appveyor.com/project/JamesMontemagno/currentactivityplugin)
+Build Status: ![Build status](https://jamesmontemagno.visualstudio.com/_apis/public/build/definitions/6b79a378-ddd6-4e31-98ac-a12fcd68644c/18/badge)
+
+CurrentActivity Readme
+
+This plugin provides base functionality for Plugins for Xamarin to gain access to the application's main Activity.
+
+# Gettting Started
+
+When plugin is installed, follow the below steps to initialise in your project. There are two ways to initialize this:
+
+## Main/Base Activity Level
+1. Simply call the `Init` method on OnCreate
+```csharp
+CrossCurrentActivity.Current.Init(this, bundle);
+```
+
+## Application Level
+
+1. Add a new C# class file in you project called "MainApplication.cs". 
+2. Override the OnCreate method and call the `Init` method
+```csharp
+#if DEBUG
+	[Application(Debuggable = true)]
+#else
+	[Application(Debuggable = false)]
+#endif
+	public class MainApplication : Application
+	{
+		public MainApplication(IntPtr handle, JniHandleOwnership transer)
+		  : base(handle, transer)
+		{
+		}
+
+		public override void OnCreate()
+		{
+			base.OnCreate();
+			CrossCurrentActivity.Current.Init(this);
+		}
+	}
+```
+If you already have an "Application" class in your project simply add the Init call. 
+
+The benefit of adding it at the Application level is to get the first events for the application.
+
 
 
 ### API Usage
@@ -25,14 +68,7 @@ Call **CrossCurrentActivity.Current** from any project or PCL to gain access to 
 Activity Activity { get; set; }
 ```
 
-That’s it! Well not really:
-
-## Application Setup
-When you install this plugin a **MainApplication.cs** is installed into your Android project (This will not happen if your project has package references), otherwise follow the instructons from [_readme.txt_](https://raw.githubusercontent.com/jamesmontemagno/CurrentActivityPlugin/master/nuget/readme.txt) that is installed with the plugin. 
-
-If you already have an Application class then you should copy over the important bits that can be found in the [_readme.txt_](https://raw.githubusercontent.com/jamesmontemagno/CurrentActivityPlugin/master/nuget/readme.txt)
-
-
+That’s it!
 
 **Library Creators**
 Simply set this nuget as a dependency of your project to gain access to the current activity. This can be achieved by setting the following in your nuspec:
