@@ -1,3 +1,4 @@
+using System;
 using Android.App;
 
 namespace Plugin.CurrentActivity
@@ -12,5 +13,7 @@ namespace Plugin.CurrentActivity
         /// </summary>
         /// <value>The activity.</value>
         Activity Activity { get; set; }
+
+        event EventHandler<Activity> CurrentActivityChanged;
     }
 }
