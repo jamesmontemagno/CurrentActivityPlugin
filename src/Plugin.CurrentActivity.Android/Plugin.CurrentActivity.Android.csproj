@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityEvent.cs" />
+    <Compile Include="ActivityEventArgs.cs" />
     <Compile Include="CrossCurrentActivity.cs" />
     <Compile Include="CurrentActivityImplementation.cs" />
     <Compile Include="ICurrentActivity.cs" />
