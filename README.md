@@ -98,12 +98,4 @@ private void Current_ActivityStateChanged(object sender, ActivityEventArgs e)
 That’s it!
 
 **Library Creators**
-Simply set this nuget as a dependency of your project to gain access to the current activity. This can be achieved by setting the following in your nuspec:
-
-```xml
-<dependencies>
-  <group targetFramework="MonoAndroid10">
-    <dependency id="Plugin.CurrentActivity" version="2.0.0"/>
-  </group>
-</dependencies>
-```
+Simply set this nuget as a dependency of your project to gain access to the current activity.
