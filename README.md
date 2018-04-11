@@ -17,6 +17,12 @@ This plugin provides base functionality for Plugins for Xamarin to gain access t
 
 ## Getting Started
 
+## Version 1.0
+
+Please read the following guide: https://github.com/jamesmontemagno/CurrentActivityPlugin/blob/6458fd91e83c6b56bbfda2c80b5cefcdbae2fe0a/nuget/readme.txt
+
+## Version 2.0 
+
 When plugin is installed, follow the below steps to initialise in your project. There are two ways to initialize this:
 
 ### Main/Base Activity Level
