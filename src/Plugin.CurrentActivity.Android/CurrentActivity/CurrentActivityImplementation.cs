@@ -38,11 +38,6 @@ namespace Plugin.CurrentActivity
 
 		ActivityLifecycleContextListener lifecycleListener;
 
-		/// <summary>
-		/// Gets the current context
-		/// </summary>
-        public Context Context =>
-            lifecycleListener?.Context ?? Application.Context;
 
 		/// <summary>
 		/// Initialize current activity with application
