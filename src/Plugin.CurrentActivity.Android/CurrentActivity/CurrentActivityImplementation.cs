@@ -6,10 +6,11 @@ using System;
 
 namespace Plugin.CurrentActivity
 {
-    /// <summary>
-    /// Implementation for Feature
-    /// </summary>
-    public class CurrentActivityImplementation : ICurrentActivity
+	/// <summary>
+	/// Implementation for Feature
+	/// </summary>
+	[Preserve(AllMembers = true)]
+	public class CurrentActivityImplementation : ICurrentActivity
     {
 
         /// <summary>
@@ -39,10 +40,10 @@ namespace Plugin.CurrentActivity
 		ActivityLifecycleContextListener lifecycleListener;
 
 		/// <summary>
-		/// Gets the current context
+		/// Gets the current application context
 		/// </summary>
-        public Context Context =>
-            lifecycleListener?.Context ?? Application.Context;
+        public Context AppContext =>
+            Application.Context;
 
 		/// <summary>
 		/// Initialize current activity with application
