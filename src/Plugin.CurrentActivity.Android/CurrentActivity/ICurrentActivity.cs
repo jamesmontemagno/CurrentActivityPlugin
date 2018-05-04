@@ -17,6 +17,12 @@ namespace Plugin.CurrentActivity
         Activity Activity { get; set; }
 
 		/// <summary>
+		/// Gets the current Application Context.
+		/// </summary>
+		/// <value>The app context.</value>
+		Context AppContext { get; }
+
+		/// <summary>
 		/// Fires when activity state events are fired
 		/// </summary>
 		event EventHandler<ActivityEventArgs> ActivityStateChanged;
