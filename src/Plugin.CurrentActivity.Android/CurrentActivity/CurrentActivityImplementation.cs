@@ -94,7 +94,7 @@ namespace Plugin.CurrentActivity
 
         public void OnActivityPaused(Activity activity)
         {
-            currentActivity.SetTarget(null);
+            currentActivity.SetTarget(activity);
 			Current.RaiseStateChanged(activity, ActivityEvent.Paused);
 		}
 
