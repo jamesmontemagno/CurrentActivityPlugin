@@ -63,8 +63,11 @@ namespace Plugin.CurrentActivity
 		/// </summary>
 		/// <param name="activity">The main activity</param>
 		/// <param name="bundle">Bundle for activity </param>
-        public void Init(Activity activity, Bundle bundle) =>
-           Init(activity.Application);
+		public void Init(Activity activity, Bundle bundle)
+		{
+			Init(activity.Application);
+			lifecycleListener.Activity = activity;
+		}
     }
 
     [Preserve(AllMembers = true)]
@@ -75,15 +78,18 @@ namespace Plugin.CurrentActivity
         public Context Context =>
             Activity ?? Application.Context;
 
-        public Activity Activity =>
-            currentActivity.TryGetTarget(out var a) ? a : null;
+		public Activity Activity
+		{
+			get => currentActivity.TryGetTarget(out var a) ? a : null;
+			set => currentActivity.SetTarget(value);
+		}
 
 		CurrentActivityImplementation Current =>
 			(CurrentActivityImplementation)(CrossCurrentActivity.Current);
 
         public void OnActivityCreated(Activity activity, Bundle savedInstanceState)
         {
-			currentActivity.SetTarget(activity);
+			Activity = activity;
 			Current.RaiseStateChanged(activity, ActivityEvent.Created);
 		}
 
@@ -94,13 +100,13 @@ namespace Plugin.CurrentActivity
 
         public void OnActivityPaused(Activity activity)
         {
-            currentActivity.SetTarget(activity);
+			Activity = activity;
 			Current.RaiseStateChanged(activity, ActivityEvent.Paused);
 		}
 
         public void OnActivityResumed(Activity activity)
         {
-            currentActivity.SetTarget(activity);
+			Activity = activity;
 			Current.RaiseStateChanged(activity, ActivityEvent.Resumed);
 		}
 
