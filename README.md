@@ -74,10 +74,10 @@ Call **CrossCurrentActivity.Current** from your Android project to gain access t
 Activity Activity { get; set; }
 
 /// <summary>
-/// Gets the current Context.
+/// Gets the current Application Context.
 /// </summary>
 /// <value>The activity.</value>
-Context Context { get; }
+Context AppContext { get; }
 
 /// <summary>
 /// Fires when activity state events are fired
