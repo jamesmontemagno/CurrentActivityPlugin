@@ -2,7 +2,7 @@
 
 This plugin gives developers and library creators easy access to an Android Application’s current Activity that is being displayed.
 
-Want to read about the creation, checkout my [in-depth blog post](http://motzcod.es/post/133609925342/access-the-current-android-activity-from-anywhere).
+Want to read about the creation, check out my [in-depth blog post](http://motzcod.es/post/133609925342/access-the-current-android-activity-from-anywhere).
 
 ## Setup
 
@@ -23,7 +23,7 @@ Please read the following guide: https://github.com/jamesmontemagno/CurrentActiv
 
 ## Version 2.0 
 
-When plugin is installed, follow the below steps to initialise in your project. There are two ways to initialize this:
+When the plugin is installed, follow the below steps to initialize in your project. There are two ways to initialize this:
 
 ### Main/Base Activity Level
 
@@ -35,8 +35,8 @@ CrossCurrentActivity.Current.Init(this, bundle);
 
 ### Application Level
 
-1. Add a new C# class file in you project called "MainApplication.cs".
-2. Override the OnCreate method and call the `Init` method
+1. Add a new C# class file in your project called "MainApplication.cs".
+2. Override the `OnCreate` method and call the `Init` method
 
 ```csharp
 #if DEBUG
@@ -104,4 +104,5 @@ private void Current_ActivityStateChanged(object sender, ActivityEventArgs e)
 That’s it!
 
 **Library Creators**
+
 Simply set this nuget as a dependency of your project to gain access to the current activity.
