@@ -3,6 +3,7 @@ using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using System;
+using System.Threading.Tasks;
 
 namespace Plugin.CurrentActivity
 {
@@ -37,7 +38,7 @@ namespace Plugin.CurrentActivity
 		/// Waits for an activity to be ready
 		/// </summary>
 		/// <returns></returns>
-		public Task<Activity> WaitForActivityAsync()
+		public async Task<Activity> WaitForActivityAsync()
 		{
 			var tcs = new TaskCompletionSource<Activity>();
 			var handler = new EventHandler<ActivityEventArgs>((sender, args) =>
@@ -49,7 +50,7 @@ namespace Plugin.CurrentActivity
 			try
 			{
 				this.ActivityStateChanged += handler;
-				await tcs.ConfigureAwait(false);
+				return await tcs.Task.ConfigureAwait(false);
 			}
 			finally
 			{
