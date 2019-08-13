@@ -33,9 +33,34 @@ namespace Plugin.CurrentActivity
         public event EventHandler<ActivityEventArgs> ActivityStateChanged;
 
 
-        internal void RaiseStateChanged(Activity activity, ActivityEvent ev)
+		/// <summary>
+		/// Waits for an activity to be ready
+		/// </summary>
+		/// <returns></returns>
+		public Task<Activity> WaitForActivityAsync()
+		{
+			var tcs = new TaskCompletionSource<Activity>();
+			var handler = new EventHandler<ActivityEventArgs>((sender, args) =>
+			{
+				if (args.Event == ActivityEvent.Created || args.Event == ActivityEvent.Resumed)
+					tcs.TrySetResult(args.Activity);
+			});
+
+			try
+			{
+				this.ActivityStateChanged += handler;
+				await tcs.ConfigureAwait(false);
+			}
+			finally
+			{
+				this.ActivityStateChanged -= handler;
+			}
+		}
+
+
+		internal void RaiseStateChanged(Activity activity, ActivityEvent ev)
             => ActivityStateChanged?.Invoke(this, new ActivityEventArgs(activity, ev));
-       
+
 
 		ActivityLifecycleContextListener lifecycleListener;
 

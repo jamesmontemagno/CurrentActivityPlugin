@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -26,6 +27,12 @@ namespace Plugin.CurrentActivity
 		/// Fires when activity state events are fired
 		/// </summary>
 		event EventHandler<ActivityEventArgs> ActivityStateChanged;
+
+		/// <summary>
+		/// Waits for an activity to be ready for use
+		/// </summary>
+		/// <returns></returns>
+		Task<Activity> WaitForActivityAsync();
 
 		/// <summary>
 		/// Initialize Current Activity Plugin with Application
