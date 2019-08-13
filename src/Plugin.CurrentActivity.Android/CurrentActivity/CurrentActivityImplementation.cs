@@ -3,6 +3,7 @@ using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Plugin.CurrentActivity
@@ -38,8 +39,11 @@ namespace Plugin.CurrentActivity
 		/// Waits for an activity to be ready
 		/// </summary>
 		/// <returns></returns>
-		public async Task<Activity> WaitForActivityAsync()
+		public async Task<Activity> WaitForActivityAsync(CancellationToken cancelToken = default)
 		{
+			if (Activity != null)
+				return Activity;
+
 			var tcs = new TaskCompletionSource<Activity>();
 			var handler = new EventHandler<ActivityEventArgs>((sender, args) =>
 			{
@@ -49,12 +53,15 @@ namespace Plugin.CurrentActivity
 
 			try
 			{
-				this.ActivityStateChanged += handler;
-				return await tcs.Task.ConfigureAwait(false);
+				using (cancelToken.Register(() => tcs.TrySetCanceled()))
+				{
+					ActivityStateChanged += handler;
+					return await tcs.Task.ConfigureAwait(false);
+				}
 			}
 			finally
 			{
-				this.ActivityStateChanged -= handler;
+				ActivityStateChanged -= handler;
 			}
 		}
 

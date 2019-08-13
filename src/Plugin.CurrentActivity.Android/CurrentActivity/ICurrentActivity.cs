@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
@@ -32,7 +33,7 @@ namespace Plugin.CurrentActivity
 		/// Waits for an activity to be ready for use
 		/// </summary>
 		/// <returns></returns>
-		Task<Activity> WaitForActivityAsync();
+		Task<Activity> WaitForActivityAsync(CancellationToken cancelToken = default);
 
 		/// <summary>
 		/// Initialize Current Activity Plugin with Application
