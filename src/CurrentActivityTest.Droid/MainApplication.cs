@@ -21,12 +21,17 @@ namespace CurrentActivityTest
 			base.OnCreate();
 			CrossCurrentActivity.Current.Init(this);
 			CrossCurrentActivity.Current.ActivityStateChanged += Current_ActivityStateChanged;
+
+			CrossCurrentActivity.Current.WaitForActivityAsync().ContinueWith(x =>
+			{
+				Console.WriteLine("This returned");
+			});
 		}
 
 		private void Current_ActivityStateChanged(object sender, ActivityEventArgs e)
 		{
 			Toast.MakeText(Application.Context, $"Activity Changed: {e.Activity.LocalClassName} -  {e.Event}", ToastLength.Short).Show();
-			
+
 		}
 	}
 }
