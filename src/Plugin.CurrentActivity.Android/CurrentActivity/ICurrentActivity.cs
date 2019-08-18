@@ -33,7 +33,7 @@ namespace Plugin.CurrentActivity
 		/// Waits for an activity to be ready for use
 		/// </summary>
 		/// <returns></returns>
-		Task<Activity> WaitForActivityAsync(CancellationToken cancelToken = default(CancellationToken));
+		Task<Activity> WaitForActivityAsync(CancellationToken cancelToken = default);
 
 		/// <summary>
 		/// Initialize Current Activity Plugin with Application

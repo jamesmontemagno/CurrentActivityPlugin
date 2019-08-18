@@ -39,7 +39,7 @@ namespace Plugin.CurrentActivity
 		/// Waits for an activity to be ready
 		/// </summary>
 		/// <returns></returns>
-		public async Task<Activity> WaitForActivityAsync(CancellationToken cancelToken = default(CancellationToken))
+		public async Task<Activity> WaitForActivityAsync(CancellationToken cancelToken = default)
 		{
 			if (Activity != null)
 				return Activity;
