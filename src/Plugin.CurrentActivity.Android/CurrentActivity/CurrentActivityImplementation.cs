@@ -3,6 +3,8 @@ using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Plugin.CurrentActivity
 {
@@ -33,9 +35,40 @@ namespace Plugin.CurrentActivity
         public event EventHandler<ActivityEventArgs> ActivityStateChanged;
 
 
-        internal void RaiseStateChanged(Activity activity, ActivityEvent ev)
+		/// <summary>
+		/// Waits for an activity to be ready
+		/// </summary>
+		/// <returns></returns>
+		public async Task<Activity> WaitForActivityAsync(CancellationToken cancelToken = default)
+		{
+			if (Activity != null)
+				return Activity;
+
+			var tcs = new TaskCompletionSource<Activity>();
+			var handler = new EventHandler<ActivityEventArgs>((sender, args) =>
+			{
+				if (args.Event == ActivityEvent.Created || args.Event == ActivityEvent.Resumed)
+					tcs.TrySetResult(args.Activity);
+			});
+
+			try
+			{
+				using (cancelToken.Register(() => tcs.TrySetCanceled()))
+				{
+					ActivityStateChanged += handler;
+					return await tcs.Task.ConfigureAwait(false);
+				}
+			}
+			finally
+			{
+				ActivityStateChanged -= handler;
+			}
+		}
+
+
+		internal void RaiseStateChanged(Activity activity, ActivityEvent ev)
             => ActivityStateChanged?.Invoke(this, new ActivityEventArgs(activity, ev));
-       
+
 
 		ActivityLifecycleContextListener lifecycleListener;
 
