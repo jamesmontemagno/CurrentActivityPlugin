@@ -9,7 +9,7 @@ Want to read about the creation, check out my [in-depth blog post](http://motzco
 * Available on NuGet: http://www.nuget.org/packages/Plugin.CurrentActivity [![NuGet](https://img.shields.io/nuget/v/Plugin.CurrentActivity.svg?label=NuGet)](https://www.nuget.org/packages/Plugin.CurrentActivity/)
 * Install into your Xamarin.Android Client project.
 
-Build Status: ![Build status](https://jamesmontemagno.visualstudio.com/_apis/public/build/definitions/6b79a378-ddd6-4e31-98ac-a12fcd68644c/18/badge)
+Build Status: ![Build status](https://jamesmontemagno.visualstudio.com/_apis/public/build/definitions/6b79a378-ddd6-4e31-98ac-a12fcd68644c/18/badge?WT.mc_id=currentactivityplugin-github-jamont)
 
 CurrentActivity Readme
 
