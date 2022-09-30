@@ -1,8 +1,10 @@
+This plugin is deprecated. The functionality is now available as part of the [Xamarin Essentials Platform class](https://github.com/xamarin/Essentials/blob/main/Xamarin.Essentials/Platform/Platform.android.cs).
+
 # Current Activity Plugin for Xamarin.Android
 
 This plugin gives developers and library creators easy access to an Android Application’s current Activity that is being displayed.
 
-Want to read about the creation, check out my [in-depth blog post](http://motzcod.es/post/133609925342/access-the-current-android-activity-from-anywhere).
+~~Want to read about the creation, check out my [in-depth blog post](http://motzcod.es/post/133609925342/access-the-current-android-activity-from-anywhere).~~
 
 ## Setup
 
