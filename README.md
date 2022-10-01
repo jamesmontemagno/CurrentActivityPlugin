@@ -1,3 +1,6 @@
+This plugin is no longer needed as it is directly built into Xamarin.Essentials and .NET MAUI with Platform Extensions. See the [documentation](https://learn.microsoft.com/xamarin/essentials/platform-extensions)
+
+
 # Current Activity Plugin for Xamarin.Android
 
 This plugin gives developers and library creators easy access to an Android Application’s current Activity that is being displayed.
