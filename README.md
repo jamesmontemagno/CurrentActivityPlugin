@@ -1,4 +1,7 @@
+## READ THIS
 This plugin is no longer needed as it is directly built into Xamarin.Essentials and .NET MAUI with Platform Extensions. See the [documentation](https://learn.microsoft.com/xamarin/essentials/platform-extensions)
+
+Please read for .NET MAUI: https://learn.microsoft.com/en-us/dotnet/maui/platform-integration/platform-helpers?tabs=android
 
 
 # Current Activity Plugin for Xamarin.Android
